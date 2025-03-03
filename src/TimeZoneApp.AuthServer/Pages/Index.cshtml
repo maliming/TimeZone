@@ -1,0 +1,60 @@
+﻿@page
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Mvc.Localization
+@using TimeZoneApp.Pages
+@using TimeZoneApp.Localization
+@using Volo.Abp.Users
+@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+@using Volo.Abp.Timing
+@using Volo.Abp.Ui.Branding
+@model IndexModel
+@inject IHtmlLocalizer<TimeZoneAppResource> L
+@inject ICurrentUser CurrentUser
+@inject IBrandingProvider BrandingProvider
+@inject ITheme Theme
+@inject IClock Clock
+@{
+    Layout = Theme.GetEmptyLayout();
+}
+
+@section styles {
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+}
+
+<div class="d-flex align-items-center">
+    <div class="container">
+        <abp-row>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover mt-3">
+                    <thead>
+                    <tr>
+                        <th>@L["Subject"]</th>
+                        <th>@L["StartTime"]</th>
+                        <th>@L["EndTime"]</th>
+                        <th>@L["ActualStartTime"]</th>
+                        <th>@L["CanceledTime"]</th>
+                        <th>@L["Description"]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var meeting in Model.Meetings)
+                    {
+                        <tr>
+                            <td>@meeting.Subject</td>
+                            <td>@Clock.Convert(meeting.StartTime)</td>
+                            <td>@Clock.Convert(meeting.EndTime)</td>
+                            <td>@Clock.Convert(meeting.ActualStartTime)</td>
+                            <td>@(meeting.CanceledTime.HasValue ? Clock.Convert(meeting.CanceledTime.Value) : "N/A")</td>
+                            <td>@meeting.Description</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </abp-row>
+    </div>
+</div>

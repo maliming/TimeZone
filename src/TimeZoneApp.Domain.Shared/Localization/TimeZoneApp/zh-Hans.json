@@ -1,0 +1,24 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "AppName": "TimeZoneApp",
+    "Menu:Home": "首页",
+    "Welcome": "欢迎",
+    "LongWelcomeMessage": "欢迎使用本应用程序。这是一个基于 ABP 框架的启动项目。更多信息，请访问 abp.io。",
+    "Meetings": "会议",
+    "Menu:Meeting": "会议",
+    "NewMeeting": "新建会议",
+    "Subject": "主题",
+    "StartTime": "开始时间",
+    "EndTime": "结束时间",
+    "ActualStartTime": "实际开始时间",
+    "CanceledTime": "取消时间",
+    "Description": "描述",
+    "MeetingDeletionConfirmationMessage": "您确定要删除会议 '{0}' 吗？",
+    "SuccessfullyDeleted": "删除成功！",
+    "Permission:Meetings": "会议管理",
+    "Permission:Meetings.Create": "创建新会议",
+    "Permission:Meetings.Edit": "编辑会议",
+    "Permission:Meetings.Delete": "删除会议"
+  }
+}

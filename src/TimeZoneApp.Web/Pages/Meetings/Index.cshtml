@@ -1,0 +1,37 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@using TimeZoneApp.Localization
+@using TimeZoneApp.Permissions
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Button
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Card
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Grid
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Table
+@using Volo.Abp.AspNetCore.Mvc.UI.Bundling.TagHelpers
+@model TimeZoneApp.Web.Pages.IndexModel
+@inject IStringLocalizer<TimeZoneAppResource> L
+@inject IAuthorizationService AuthorizationService
+@section scripts
+{
+    <abp-script src="/Pages/Meetings/Index.js" />
+    <abp-script src="/Pages/Meetings/Create.js" />
+    <abp-script src="/Pages/Meetings/Edit.js" />
+}
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Meetings"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+                @if (await AuthorizationService.IsGrantedAsync(TimeZoneAppPermissions.Meetings.Create))
+                {
+                    <abp-button id="NewMeetingButton" text="@L["NewMeeting"].Value" icon="plus" button-type="Primary"/>
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="MeetingsTable"></abp-table>
+    </abp-card-body>
+</abp-card>

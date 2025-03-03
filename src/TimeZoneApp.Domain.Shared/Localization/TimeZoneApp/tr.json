@@ -1,0 +1,24 @@
+{
+  "culture": "tr",
+  "texts": {
+    "AppName": "TimeZoneApp",
+    "Menu:Home": "Ana sayfa",
+    "Welcome": "Hoşgeldiniz",
+    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için abp.io adresini ziyaret edebilirsiniz.",
+    "Meetings": "Toplantılar",
+    "Menu:Meeting": "Toplantı",
+    "NewMeeting": "Yeni Toplantı",
+    "Subject": "Konu",
+    "StartTime": "Başlangıç zamanı",
+    "EndTime": "Bitiş zamanı",
+    "ActualStartTime": "Gerçek başlangıç zamanı",
+    "CanceledTime": "İptal zamanı",
+    "Description": "Açıklama",
+    "MeetingDeletionConfirmationMessage": "'{0}' toplantısını silmek istediğinizden emin misiniz?",
+    "SuccessfullyDeleted": "Başarıyla silindi!",
+    "Permission:Meetings": "Toplantı Yönetimi",
+    "Permission:Meetings.Create": "Yeni Toplantı Oluşturma",
+    "Permission:Meetings.Edit": "Toplantıları Düzenleme",
+    "Permission:Meetings.Delete": "Toplantıları Silme"
+  }
+}

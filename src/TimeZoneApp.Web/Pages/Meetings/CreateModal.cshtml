@@ -1,0 +1,18 @@
+@page
+@using Microsoft.Extensions.Localization
+@using TimeZoneApp.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model TimeZoneApp.Web.Pages.Meetings.CreateModalModel
+@inject IStringLocalizer<TimeZoneAppResource> L
+@{
+    Layout = null;
+}
+<abp-dynamic-form id="EditMeeting" abp-model="Meeting" asp-page="/Meetings/CreateModal">
+    <abp-modal>
+        <abp-modal-header title="@L["NewMeeting"].Value"></abp-modal-header>
+        <abp-modal-body>
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>

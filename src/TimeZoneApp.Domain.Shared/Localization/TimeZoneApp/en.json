@@ -1,0 +1,24 @@
+{
+  "culture": "en",
+  "texts": {
+    "AppName": "TimeZoneApp",
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Meetings": "Meetings",
+    "Menu:Meeting": "Meeting",
+    "NewMeeting": "New Meeting",
+    "Subject": "Subject",
+    "StartTime": "Start time",
+    "EndTime": "End time",
+    "ActualStartTime": "Actual start time",
+    "CanceledTime": "Canceled time",
+    "Description": "Description",
+    "MeetingDeletionConfirmationMessage": "Are you sure to delete the Meeting '{0}'?",
+    "SuccessfullyDeleted": "Successfully deleted!",
+    "Permission:Meetings": "Meeting Management",
+    "Permission:Meetings.Create": "Creating new Meetings",
+    "Permission:Meetings.Edit": "Editing the Meetings",
+    "Permission:Meetings.Delete": "Deleting the Meetings"
+  }
+}
