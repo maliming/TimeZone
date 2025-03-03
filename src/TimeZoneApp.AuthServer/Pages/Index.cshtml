@@ -33,8 +33,7 @@
                     <thead>
                     <tr>
                         <th>@L["Subject"]</th>
-                        <th>@L["StartTime"]</th>
-                        <th>@L["EndTime"]</th>
+                        <th>@L["StartTime"] / @L["EndTime"]</th>
                         <th>@L["ActualStartTime"]</th>
                         <th>@L["CanceledTime"]</th>
                         <th>@L["Description"]</th>
@@ -45,8 +44,7 @@
                     {
                         <tr>
                             <td>@meeting.Subject</td>
-                            <td>@Clock.Convert(meeting.StartTime)</td>
-                            <td>@Clock.Convert(meeting.EndTime)</td>
+                            <td>@Clock.Convert(meeting.StartTime) ➡️ @Clock.Convert(meeting.EndTime)</td>
                             <td>@Clock.Convert(meeting.ActualStartTime)</td>
                             <td>@(meeting.CanceledTime.HasValue ? Clock.Convert(meeting.CanceledTime.Value) : "N/A")</td>
                             <td>@meeting.Description</td>

@@ -59,7 +59,7 @@ public class TimeZoneAppDomainSharedModule : AbpModule
 
         Configure<AbpClockOptions>(options =>
         {
-            options.Kind = DateTimeKind.Utc;
+            //options.Kind = DateTimeKind.Utc;
         });
     }
 }
