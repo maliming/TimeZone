@@ -13,6 +13,8 @@
     "EndTime": "End time",
     "ActualStartTime": "Actual start time",
     "CanceledTime": "Canceled time",
+    "ReminderTime": "Reminder time",
+    "FollowUpTime": "Follow-up time",
     "Description": "Description",
     "MeetingDeletionConfirmationMessage": "Are you sure to delete the Meeting '{0}'?",
     "SuccessfullyDeleted": "Successfully deleted!",

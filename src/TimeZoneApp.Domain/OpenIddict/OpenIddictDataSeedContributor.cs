@@ -85,8 +85,6 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         {
             var webClientRootUrl = configurationSection["TimeZoneApp_Web:RootUrl"]!.EnsureEndsWith('/');
 
-            /* TimeZoneApp_Web client is only needed if you created a tiered
-             * solution. Otherwise, you can delete this client. */
             await CreateApplicationAsync(
                 name: webClientId!,
                 type: OpenIddictConstants.ClientTypes.Confidential,
@@ -104,9 +102,28 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             );
         }
 
+        //Blazor Client
+        var blazorClientId = configurationSection["TimeZoneApp_Blazor:ClientId"];
+        if (!blazorClientId.IsNullOrWhiteSpace())
+        {
+            var blazorClientRootUrl = configurationSection["TimeZoneApp_Blazor:RootUrl"]!.EnsureEndsWith('/');
 
-
-
+            await CreateApplicationAsync(
+                name: blazorClientId!,
+                type: OpenIddictConstants.ClientTypes.Confidential,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Blazor Application",
+                secret: configurationSection["TimeZoneApp_Blazor:ClientSecret"] ?? "1q2w3e*",
+                grantTypes: new List<string> //Hybrid flow
+                {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode, OpenIddictConstants.GrantTypes.Implicit
+                },
+                scopes: commonScopes,
+                redirectUri: $"{blazorClientRootUrl}signin-oidc",
+                clientUri: blazorClientRootUrl,
+                postLogoutRedirectUri: $"{blazorClientRootUrl}signout-callback-oidc"
+            );
+        }
 
         // Swagger Client
         var swaggerClientId = configurationSection["TimeZoneApp_Swagger:ClientId"];

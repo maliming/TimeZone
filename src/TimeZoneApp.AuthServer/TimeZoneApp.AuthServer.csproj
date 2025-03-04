@@ -39,7 +39,7 @@
     <PackageReference Include="DistributedLock.Redis" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="3.2.0" />
+    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.EntityFrameworkCore\TimeZoneApp.EntityFrameworkCore.csproj" />

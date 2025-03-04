@@ -30,6 +30,12 @@ namespace TimeZoneApp.Web.Pages.Meetings
             [DatePickerOptions(nameof(DatePickerOptions))]
             public DateTime? CanceledTime { get; set; }
 
+            [DatePickerOptions(nameof(DatePickerOptions))]
+            public DateTimeOffset ReminderTime { get; set; }
+
+            [DatePickerOptions(nameof(DatePickerOptions))]
+            public DateTimeOffset? FollowUpTime { get; set; }
+
             public string Description { get; set; }
         }
 

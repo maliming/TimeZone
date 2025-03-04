@@ -13,7 +13,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace TimeZoneApp.Migrations
 {
     [DbContext(typeof(TimeZoneAppDbContext))]
-    [Migration("20250303074106_Initial")]
+    [Migration("20250304101612_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -56,6 +56,12 @@ namespace TimeZoneApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ExtraProperties");
+
+                    b.Property<DateTimeOffset?>("FollowUpTime")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("ReminderTime")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");

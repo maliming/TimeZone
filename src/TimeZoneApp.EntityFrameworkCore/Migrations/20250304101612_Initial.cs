@@ -424,6 +424,8 @@ namespace TimeZoneApp.Migrations
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ActualStartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CanceledTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ReminderTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    FollowUpTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)

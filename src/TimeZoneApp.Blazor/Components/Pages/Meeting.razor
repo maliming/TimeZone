@@ -1,0 +1,278 @@
+@page "/meetings"
+@using Volo.Abp.Application.Dtos
+@using Microsoft.Extensions.Localization
+@using TimeZoneApp.Meetings
+@using TimeZoneApp.Localization
+@using TimeZoneApp.Permissions
+@using Volo.Abp.AspNetCore.Components.Web
+@inject IStringLocalizer<TimeZoneAppResource> L
+@inject AbpBlazorMessageLocalizerHelper<TimeZoneAppResource> LH
+@inherits AbpCrudPageBase<IMeetingAppService, MeetingDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateMeetingDto>
+
+
+<Card>
+    <CardHeader>
+        <Row Class="justify-content-between">
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <h2>@L["Meetings"]</h2>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsAuto">
+                @if (HasCreatePermission)
+                {
+                    <Button Color="Color.Primary"Clicked="OpenCreateModalAsync">@L["NewMeeting"]</Button>
+                }
+            </Column>
+        </Row>
+    </CardHeader>
+    <CardBody>
+        <DataGrid TItem="MeetingDto"
+                  Data="Entities"
+                  ReadData="OnDataGridReadAsync"
+                  TotalItems="TotalCount"
+                  ShowPager="true"
+                  PageSize="PageSize">
+            <DataGridColumns>
+                <DataGridEntityActionsColumn TItem="MeetingDto" @ref="@EntityActionsColumn">
+                    <DisplayTemplate>
+                        <EntityActions TItem="MeetingDto" EntityActionsColumn="@EntityActionsColumn">
+                            <EntityAction TItem="MeetingDto"
+                                          Text="@L["Edit"]"
+                                          Visible=HasUpdatePermission
+                                          Clicked="() => OpenEditModalAsync(context)" />
+                            <EntityAction TItem="MeetingDto"
+                                          Text="@L["Delete"]"
+                                          Clicked="() => DeleteEntityAsync(context)"
+                                          Visible=HasDeletePermission
+                                          ConfirmationMessage="()=>GetDeleteConfirmationMessage(context)" />
+                        </EntityActions>
+                    </DisplayTemplate>
+                </DataGridEntityActionsColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.Subject)"
+                                Caption="@L["Subject"]"></DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.StartTime)"
+                                Caption="@(L["StartTime"] + "/" + L["EndTime"])">
+                    <DisplayTemplate>
+                        @Clock.ConvertTo(context.StartTime).ToString("yyyy-MM-dd HH:mm:ss") ➡️ @Clock.ConvertTo(context.EndTime).ToString("yyyy-MM-dd HH:mm:ss")
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.ActualStartTime)"
+                                Caption="@L["ActualStartTime"]">
+                    <DisplayTemplate>
+                        @Clock.ConvertTo(context.ActualStartTime).ToString("yyyy-MM-dd HH:mm:ss")
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.CanceledTime)"
+                                Caption="@L["CanceledTime"]">
+                    <DisplayTemplate>
+                        @(context.CanceledTime.HasValue ? Clock.ConvertTo(context.CanceledTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.ReminderTime)"
+                                Caption="@L["ReminderTime"]">
+                    <DisplayTemplate>
+                        @(Clock.ConvertTo(context.ReminderTime).ToString("yyyy-MM-dd HH:mm:ss") )
+                          </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.FollowUpTime)"
+                                Caption="@L["FollowUpTime"]">
+                    <DisplayTemplate>
+                        @(context.FollowUpTime.HasValue ? Clock.ConvertTo(context.FollowUpTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="MeetingDto"
+                                Field="@nameof(MeetingDto.Description)"
+                                Caption="@L["Description"]">
+                </DataGridColumn>
+            </DataGridColumns>
+        </DataGrid>
+    </CardBody>
+</Card>
+
+<Modal @ref="@CreateModal">
+    <ModalContent IsCentered="true">
+        <Form>
+            <ModalHeader>
+                <ModalTitle>@L["NewMeeting"]</ModalTitle>
+                <CloseButton Clicked="CloseCreateModalAsync"/>
+            </ModalHeader>
+            <ModalBody>
+                <Validations @ref="@CreateValidationsRef" Model="@NewEntity" ValidateOnLoad="false">
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Subject"]</FieldLabel>
+                            <TextEdit @bind-Text="@NewEntity.Subject">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                    <Field>
+                        <FieldLabel>@L["StartTime"] / @L["EndTime"]</FieldLabel>
+                        <DatePicker TValue="DateTime?" @bind-Dates="SelectedDates" InputMode="DateInputMode.DateTime" SelectionMode="DateInputSelectionMode.Range" />
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["ActualStartTime"]</FieldLabel>
+                        <DateEdit TValue="DateTime" @bind-Value="NewEntity.ActualStartTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["CanceledTime"]</FieldLabel>
+                        <DateEdit TValue="DateTime?" @bind-Value="NewEntity.CanceledTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["ReminderTime"]</FieldLabel>
+                        <DateEdit TValue="DateTimeOffset" @bind-Value="NewEntity.ReminderTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["FollowUpTime"]</FieldLabel>
+                        <DateEdit TValue="DateTimeOffset?" @bind-Value="NewEntity.FollowUpTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Description"]</FieldLabel>
+                            <TextEdit @bind-Text="@NewEntity.Description">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                </Validations>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary"
+                        Clicked="CloseCreateModalAsync">@L["Cancel"]</Button>
+                <Button Color="Color.Primary"
+                        Type="@ButtonType.Submit"
+                        PreventDefaultOnSubmit="true"
+                        Clicked="CreateEntityAsync">@L["Save"]</Button>
+            </ModalFooter>
+        </Form>
+    </ModalContent>
+</Modal>
+
+<Modal @ref="@EditModal">
+    <ModalContent IsCentered="true">
+        <Form>
+            <ModalHeader>
+                <ModalTitle>@EditingEntity.Subject</ModalTitle>
+                <CloseButton Clicked="CloseEditModalAsync"/>
+            </ModalHeader>
+            <ModalBody>
+                <Validations @ref="@EditValidationsRef" Model="@NewEntity" ValidateOnLoad="false">
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Subject"]</FieldLabel>
+                            <TextEdit @bind-Text="@EditingEntity.Subject">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                    <Field>
+                        <FieldLabel>@L["StartTime"] / @L["EndTime"]</FieldLabel>
+                        <DatePicker TValue="DateTime?" @bind-Dates="SelectedDates" InputMode="DateInputMode.DateTime" SelectionMode="DateInputSelectionMode.Range" />
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["ActualStartTime"]</FieldLabel>
+                        <DateEdit TValue="DateTime" @bind-Date="EditingEntity.ActualStartTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["CanceledTime"]</FieldLabel>
+                        <DateEdit TValue="DateTime?" @bind-Date="EditingEntity.CanceledTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["ReminderTime"]</FieldLabel>
+                        <DateEdit TValue="DateTimeOffset" @bind-Date="EditingEntity.ReminderTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["FollowUpTime"]</FieldLabel>
+                        <DateEdit TValue="DateTimeOffset?" @bind-Date="EditingEntity.FollowUpTime" InputMode="DateInputMode.DateTime"/>
+                    </Field>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Description"]</FieldLabel>
+                            <TextEdit @bind-Text="@EditingEntity.Description">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                </Validations>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary"
+                        Clicked="CloseEditModalAsync">@L["Cancel"]</Button>
+                <Button Color="Color.Primary"
+                        Type="@ButtonType.Submit"
+                        PreventDefaultOnSubmit="true"
+                        Clicked="UpdateEntityAsync">@L["Save"]</Button>
+            </ModalFooter>
+        </Form>
+    </ModalContent>
+</Modal>
+
+
+@code {
+    IReadOnlyList<DateTime?> SelectedDates;
+
+    public Meeting()
+    {
+        CreatePolicyName = TimeZoneAppPermissions.Meetings.Create;
+        UpdatePolicyName = TimeZoneAppPermissions.Meetings.Edit;
+        DeletePolicyName = TimeZoneAppPermissions.Meetings.Delete;
+    }
+
+    protected override Task OpenCreateModalAsync()
+    {
+        SelectedDates = new List<DateTime?> { Clock.ConvertTo(DateTime.Now).Date.AddHours(10), Clock.ConvertTo(DateTime.Now).Date.AddDays(7).AddHours(10) };
+        return base.OpenCreateModalAsync();
+    }
+
+    protected override Task CreateEntityAsync()
+    {
+        if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
+        {
+            NewEntity.StartTime = Clock.Normalize(SelectedDates[0]!.Value);
+            NewEntity.EndTime = Clock.Normalize(SelectedDates[1]!.Value);
+        }
+
+        NewEntity.ActualStartTime = Clock.Normalize(NewEntity.ActualStartTime);
+        NewEntity.CanceledTime = NewEntity.CanceledTime.HasValue ? Clock.Normalize(NewEntity.CanceledTime.Value) : null;
+
+        return base.CreateEntityAsync();
+    }
+
+    protected override async Task OpenEditModalAsync(MeetingDto entity)
+    {
+        await base.OpenEditModalAsync(entity);
+
+        SelectedDates = new List<DateTime?> { Clock.ConvertTo(EditingEntity.StartTime), Clock.ConvertTo(EditingEntity.EndTime) };
+        EditingEntity.ActualStartTime = Clock.ConvertTo(EditingEntity.ActualStartTime);
+        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertTo(EditingEntity.CanceledTime.Value) : null;
+        EditingEntity.ReminderTime = Clock.ConvertTo(EditingEntity.ReminderTime);
+        EditingEntity.FollowUpTime = EditingEntity.FollowUpTime.HasValue ? Clock.ConvertTo(EditingEntity.FollowUpTime.Value) : null;
+    }
+
+    protected override Task UpdateEntityAsync()
+    {
+        if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
+        {
+            EditingEntity.StartTime = Clock.ConvertFrom(SelectedDates[0]!.Value);
+            EditingEntity.EndTime = Clock.ConvertFrom(SelectedDates[1]!.Value);
+        }
+
+        EditingEntity.ActualStartTime = Clock.ConvertFrom(EditingEntity.ActualStartTime);
+        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertFrom(EditingEntity.CanceledTime.Value) : null;
+
+        return base.UpdateEntityAsync();
+    }
+}

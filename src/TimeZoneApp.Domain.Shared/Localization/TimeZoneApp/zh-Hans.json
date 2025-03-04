@@ -13,6 +13,8 @@
     "EndTime": "结束时间",
     "ActualStartTime": "实际开始时间",
     "CanceledTime": "取消时间",
+    "ReminderTime": "提醒时间",
+    "FollowUpTime": "跟进时间",
     "Description": "描述",
     "MeetingDeletionConfirmationMessage": "您确定要删除会议 '{0}' 吗？",
     "SuccessfullyDeleted": "删除成功！",

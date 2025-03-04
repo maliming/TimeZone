@@ -13,6 +13,8 @@
     "EndTime": "Bitiş zamanı",
     "ActualStartTime": "Gerçek başlangıç zamanı",
     "CanceledTime": "İptal zamanı",
+    "ReminderTime": "Hatırlatma zamanı",
+    "FollowUpTime": "Takip zamanı",
     "Description": "Açıklama",
     "MeetingDeletionConfirmationMessage": "'{0}' toplantısını silmek istediğinizden emin misiniz?",
     "SuccessfullyDeleted": "Başarıyla silindi!",

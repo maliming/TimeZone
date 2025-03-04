@@ -15,5 +15,9 @@ public class Meeting : AggregateRoot<Guid>
 
     public DateTime? CanceledTime { get; set; }
 
+    public DateTimeOffset ReminderTime { get; set; }
+
+    public DateTimeOffset? FollowUpTime { get; set; }
+
     public string Description { get; set; }
 }

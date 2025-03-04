@@ -54,6 +54,12 @@ namespace TimeZoneApp.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ExtraProperties");
 
+                    b.Property<DateTimeOffset?>("FollowUpTime")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("ReminderTime")
+                        .HasColumnType("datetimeoffset");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 

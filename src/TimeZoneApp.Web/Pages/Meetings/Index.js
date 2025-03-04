@@ -73,6 +73,18 @@ $(function () {
                     }
                 },
                 {
+                    title: l('ReminderTime'),
+                    data: "reminderTime",
+                    dataFormat: "datetime"
+                },
+                {
+                    title: l('FollowUpTime'),
+                    data: "followUpTime",
+                    render: function (data, type, row) {
+                        return data ? abp.clock.normalizeToLocaleString(data) : 'N/A';
+                    }
+                },
+                {
                     title: l('Description'),
                     data: "description"
                 }

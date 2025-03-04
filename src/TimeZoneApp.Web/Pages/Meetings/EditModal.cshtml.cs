@@ -28,6 +28,12 @@ public class EditModalModel  : TimeZoneAppPageModel
         [DatePickerOptions(nameof(DatePickerOptions))]
         public DateTime? CanceledTime { get; set; }
 
+        [DatePickerOptions(nameof(DatePickerOptions))]
+        public DateTimeOffset ReminderTime { get; set; }
+
+        [DatePickerOptions(nameof(DatePickerOptions))]
+        public DateTimeOffset? FollowUpTime { get; set; }
+
         public string Description { get; set; }
     }
 
