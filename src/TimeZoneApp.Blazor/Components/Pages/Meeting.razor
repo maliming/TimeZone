@@ -9,7 +9,6 @@
 @inject AbpBlazorMessageLocalizerHelper<TimeZoneAppResource> LH
 @inherits AbpCrudPageBase<IMeetingAppService, MeetingDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateMeetingDto>
 
-
 <Card>
     <CardHeader>
         <Row Class="justify-content-between">
@@ -19,7 +18,7 @@
             <Column ColumnSize="ColumnSize.IsAuto">
                 @if (HasCreatePermission)
                 {
-                    <Button Color="Color.Primary"Clicked="OpenCreateModalAsync">@L["NewMeeting"]</Button>
+                    <Button Color="Color.Primary" Clicked="OpenCreateModalAsync">@L["NewMeeting"]</Button>
                 }
             </Column>
         </Row>
@@ -119,19 +118,19 @@
                     </Field>
                     <Field>
                         <FieldLabel>@L["ActualStartTime"]</FieldLabel>
-                        <DateEdit TValue="DateTime" @bind-Value="NewEntity.ActualStartTime" InputMode="DateInputMode.DateTime"/>
+                        <DateEdit TValue="DateTime" @bind-Date="NewEntity.ActualStartTime" InputMode="DateInputMode.DateTime"/>
                     </Field>
                     <Field>
                         <FieldLabel>@L["CanceledTime"]</FieldLabel>
-                        <DateEdit TValue="DateTime?" @bind-Value="NewEntity.CanceledTime" InputMode="DateInputMode.DateTime"/>
+                        <DateEdit TValue="DateTime?" @bind-Date="NewEntity.CanceledTime" InputMode="DateInputMode.DateTime"/>
                     </Field>
                     <Field>
                         <FieldLabel>@L["ReminderTime"]</FieldLabel>
-                        <DateEdit TValue="DateTimeOffset" @bind-Value="NewEntity.ReminderTime" InputMode="DateInputMode.DateTime"/>
+                        <DateEdit TValue="DateTimeOffset" @bind-Date="NewEntity.ReminderTime" InputMode="DateInputMode.DateTime"/>
                     </Field>
                     <Field>
                         <FieldLabel>@L["FollowUpTime"]</FieldLabel>
-                        <DateEdit TValue="DateTimeOffset?" @bind-Value="NewEntity.FollowUpTime" InputMode="DateInputMode.DateTime"/>
+                        <DateEdit TValue="DateTimeOffset?" @bind-Date="NewEntity.FollowUpTime" InputMode="DateInputMode.DateTime"/>
                     </Field>
                     <Validation MessageLocalizer="@LH.Localize">
                         <Field>
@@ -165,7 +164,7 @@
                 <CloseButton Clicked="CloseEditModalAsync"/>
             </ModalHeader>
             <ModalBody>
-                <Validations @ref="@EditValidationsRef" Model="@NewEntity" ValidateOnLoad="false">
+                <Validations @ref="@EditValidationsRef" Model="@EditingEntity" ValidateOnLoad="false">
                     <Validation MessageLocalizer="@LH.Localize">
                         <Field>
                             <FieldLabel>@L["Subject"]</FieldLabel>
@@ -231,24 +230,33 @@
         DeletePolicyName = TimeZoneAppPermissions.Meetings.Delete;
     }
 
-    protected override Task OpenCreateModalAsync()
+    protected override async Task OpenCreateModalAsync()
     {
-        SelectedDates = new List<DateTime?> { Clock.ConvertTo(DateTime.Now).Date.AddHours(10), Clock.ConvertTo(DateTime.Now).Date.AddDays(7).AddHours(10) };
-        return base.OpenCreateModalAsync();
+        await base.OpenCreateModalAsync();
+
+        var now = DateTime.Now;
+        SelectedDates = new List<DateTime?> { now.Date.AddHours(10),now.Date.AddDays(7).AddHours(10) };
+        NewEntity.ActualStartTime = now.Date.AddHours(11);
+        NewEntity.CanceledTime = now.Date.AddHours(12);
+        NewEntity.ReminderTime = now.Date.AddHours(13);
+        NewEntity.FollowUpTime = now.Date.AddHours(14);
     }
 
-    protected override Task CreateEntityAsync()
+    protected override Task OnCreatingEntityAsync()
     {
         if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
         {
-            NewEntity.StartTime = Clock.Normalize(SelectedDates[0]!.Value);
-            NewEntity.EndTime = Clock.Normalize(SelectedDates[1]!.Value);
+            NewEntity.StartTime = Clock.ConvertFrom(SelectedDates[0]!.Value);
+            NewEntity.EndTime = Clock.ConvertFrom(SelectedDates[1]!.Value);
         }
 
-        NewEntity.ActualStartTime = Clock.Normalize(NewEntity.ActualStartTime);
-        NewEntity.CanceledTime = NewEntity.CanceledTime.HasValue ? Clock.Normalize(NewEntity.CanceledTime.Value) : null;
+        NewEntity.ActualStartTime = Clock.ConvertFrom(NewEntity.ActualStartTime);
+        NewEntity.CanceledTime = NewEntity.CanceledTime.HasValue ? Clock.ConvertFrom(NewEntity.CanceledTime.Value) : null;
 
-        return base.CreateEntityAsync();
+        NewEntity.ReminderTime = Clock.ConvertFrom(NewEntity.ReminderTime.DateTime);
+        NewEntity.FollowUpTime = NewEntity.FollowUpTime.HasValue ? Clock.ConvertFrom(NewEntity.FollowUpTime.Value.DateTime) : null;
+
+        return Task.CompletedTask;
     }
 
     protected override async Task OpenEditModalAsync(MeetingDto entity)
@@ -262,7 +270,7 @@
         EditingEntity.FollowUpTime = EditingEntity.FollowUpTime.HasValue ? Clock.ConvertTo(EditingEntity.FollowUpTime.Value) : null;
     }
 
-    protected override Task UpdateEntityAsync()
+    protected override Task OnUpdatingEntityAsync()
     {
         if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
         {
@@ -273,6 +281,6 @@
         EditingEntity.ActualStartTime = Clock.ConvertFrom(EditingEntity.ActualStartTime);
         EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertFrom(EditingEntity.CanceledTime.Value) : null;
 
-        return base.UpdateEntityAsync();
+        return Task.CompletedTask;
     }
 }

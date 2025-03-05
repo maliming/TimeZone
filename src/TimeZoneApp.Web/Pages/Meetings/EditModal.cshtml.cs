@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TimeZoneApp.Meetings;
@@ -10,6 +11,7 @@ public class EditModalModel  : TimeZoneAppPageModel
 {
     public class EditMeetingViewModel
     {
+        [Required]
         public string Subject { get; set; }
 
         [BindProperty]
@@ -34,6 +36,7 @@ public class EditModalModel  : TimeZoneAppPageModel
         [DatePickerOptions(nameof(DatePickerOptions))]
         public DateTimeOffset? FollowUpTime { get; set; }
 
+        [Required]
         public string Description { get; set; }
     }
 

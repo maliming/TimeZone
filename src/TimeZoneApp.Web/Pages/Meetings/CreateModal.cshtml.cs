@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TimeZoneApp.Meetings;
@@ -12,6 +13,7 @@ namespace TimeZoneApp.Web.Pages.Meetings
     {
         public class CreateMeetingViewModel
         {
+            [Required]
             public string Subject { get; set; }
 
             [BindProperty]
@@ -36,6 +38,7 @@ namespace TimeZoneApp.Web.Pages.Meetings
             [DatePickerOptions(nameof(DatePickerOptions))]
             public DateTimeOffset? FollowUpTime { get; set; }
 
+            [Required]
             public string Description { get; set; }
         }
 
