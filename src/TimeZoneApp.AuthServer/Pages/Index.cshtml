@@ -49,8 +49,8 @@
                             <td>@Clock.ConvertTo(meeting.StartTime) ➡️ @Clock.ConvertTo(meeting.EndTime)</td>
                             <td>@Clock.ConvertTo(meeting.ActualStartTime)</td>
                             <td>@(meeting.CanceledTime.HasValue ? Clock.ConvertTo(meeting.CanceledTime.Value) : "N/A")</td>
-                            <td>@Clock.ConvertTo(meeting.ReminderTime)</td>
-                            <td>@(meeting.FollowUpTime.HasValue ? Clock.ConvertTo(meeting.FollowUpTime.Value) : "N/A")</td>
+                            <td>@Clock.ConvertTo(meeting.ReminderTime).DateTime</td>
+                            <td>@(meeting.FollowUpTime.HasValue ? Clock.ConvertTo(meeting.FollowUpTime.Value).DateTime : "N/A")</td>
                             <td>@meeting.Description</td>
                         </tr>
                     }
