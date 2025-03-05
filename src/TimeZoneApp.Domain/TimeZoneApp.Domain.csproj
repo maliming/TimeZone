@@ -9,15 +9,15 @@
     <ProjectReference Include="..\TimeZoneApp.Domain.Shared\TimeZoneApp.Domain.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Emailing/Volo.Abp.Emailing.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/identity/src/Volo.Abp.Identity.Domain/Volo.Abp.Identity.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/identity/src/Volo.Abp.PermissionManagement.Domain.Identity/Volo.Abp.PermissionManagement.Domain.Identity.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/background-jobs/src/Volo.Abp.BackgroundJobs.Domain/Volo.Abp.BackgroundJobs.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/audit-logging/src/Volo.Abp.AuditLogging.Domain/Volo.Abp.AuditLogging.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Domain/Volo.Abp.TenantManagement.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/feature-management/src/Volo.Abp.FeatureManagement.Domain/Volo.Abp.FeatureManagement.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/setting-management/src/Volo.Abp.SettingManagement.Domain/Volo.Abp.SettingManagement.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/openiddict/src/Volo.Abp.OpenIddict.Domain/Volo.Abp.OpenIddict.Domain.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/openiddict/src/Volo.Abp.PermissionManagement.Domain.OpenIddict/Volo.Abp.PermissionManagement.Domain.OpenIddict.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Emailing/Volo.Abp.Emailing.csproj" />
+    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Domain/Volo.Abp.Identity.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.PermissionManagement.Domain.Identity/Volo.Abp.PermissionManagement.Domain.Identity.csproj" />
+    <ProjectReference Include="../../../abp/modules/background-jobs/src/Volo.Abp.BackgroundJobs.Domain/Volo.Abp.BackgroundJobs.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/audit-logging/src/Volo.Abp.AuditLogging.Domain/Volo.Abp.AuditLogging.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Domain/Volo.Abp.TenantManagement.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/feature-management/src/Volo.Abp.FeatureManagement.Domain/Volo.Abp.FeatureManagement.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Domain/Volo.Abp.SettingManagement.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/openiddict/src/Volo.Abp.OpenIddict.Domain/Volo.Abp.OpenIddict.Domain.csproj" />
+    <ProjectReference Include="../../../abp/modules/openiddict/src/Volo.Abp.PermissionManagement.Domain.OpenIddict/Volo.Abp.PermissionManagement.Domain.OpenIddict.csproj" />
   </ItemGroup>
 </Project>

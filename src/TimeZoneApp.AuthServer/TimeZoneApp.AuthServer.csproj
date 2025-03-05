@@ -43,12 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.EntityFrameworkCore\TimeZoneApp.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/account/src/Volo.Abp.Account.Web.OpenIddict/Volo.Abp.Account.Web.OpenIddict.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/account/src/Volo.Abp.Account.Application/Volo.Abp.Account.Application.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/account/src/Volo.Abp.Account.HttpApi/Volo.Abp.Account.HttpApi.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
+    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.Web.OpenIddict/Volo.Abp.Account.Web.OpenIddict.csproj" />
+    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.Application/Volo.Abp.Account.Application.csproj" />
+    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.HttpApi/Volo.Abp.Account.HttpApi.csproj" />
   </ItemGroup>
 </Project>

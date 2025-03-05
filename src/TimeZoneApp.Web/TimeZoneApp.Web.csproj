@@ -24,18 +24,18 @@
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.HttpApi.Client\TimeZoneApp.HttpApi.Client.csproj" />
     <ProjectReference Include="..\TimeZoneApp.HttpApi\TimeZoneApp.HttpApi.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.AspNetCore.Mvc.Client/Volo.Abp.AspNetCore.Mvc.Client.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.AspNetCore.Authentication.OpenIdConnect/Volo.Abp.AspNetCore.Authentication.OpenIdConnect.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Http.Client.Web/Volo.Abp.Http.Client.Web.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Http.Client.IdentityModel.Web/Volo.Abp.Http.Client.IdentityModel.Web.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Swashbuckle/Volo.Abp.Swashbuckle.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/identity/src/Volo.Abp.Identity.Web/Volo.Abp.Identity.Web.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Web/Volo.Abp.TenantManagement.Web.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/modules/setting-management/src/Volo.Abp.SettingManagement.Web/Volo.Abp.SettingManagement.Web.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Mvc.Client/Volo.Abp.AspNetCore.Mvc.Client.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Authentication.OpenIdConnect/Volo.Abp.AspNetCore.Authentication.OpenIdConnect.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Http.Client.Web/Volo.Abp.Http.Client.Web.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Http.Client.IdentityModel.Web/Volo.Abp.Http.Client.IdentityModel.Web.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Swashbuckle/Volo.Abp.Swashbuckle.csproj" />
+    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Web/Volo.Abp.Identity.Web.csproj" />
+    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Web/Volo.Abp.TenantManagement.Web.csproj" />
+    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Web/Volo.Abp.SettingManagement.Web.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Logs\**" />

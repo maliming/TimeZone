@@ -19,8 +19,8 @@
     <PackageReference Include="DistributedLock.Redis" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="/Users/maliming/Github/lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme/Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.csproj" />
+    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme/Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.csproj" />
+    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.HttpApi.Client\TimeZoneApp.HttpApi.Client.csproj" />

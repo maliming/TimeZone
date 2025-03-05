@@ -27,8 +27,8 @@
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.Application.Contracts\TimeZoneApp.Application.Contracts.csproj" />
     <ProjectReference Include="..\TimeZoneApp.EntityFrameworkCore\TimeZoneApp.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="/Users/maliming/Github/abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Logs\**" />
