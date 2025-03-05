@@ -104,6 +104,15 @@ public class TimeZoneAppWebModule : AbpModule
     {
         Configure<AbpBundlingOptions>(options =>
         {
+            options.ScriptBundles.Configure(
+                LeptonXLiteThemeBundles.Scripts.Global,
+                bundle =>
+                {
+                    // Remove these lines after 9.2.0 release
+                    bundle.AddFiles("/abp.js");
+                    bundle.AddFiles("/abp.luxon.js");
+                }
+            );
             options.StyleBundles.Configure(
                 LeptonXLiteThemeBundles.Styles.Global,
                 bundle =>
