@@ -31,11 +31,11 @@ public class MeetingDataSeederContributor : IDataSeedContributor, ITransientDepe
                 new Meeting
                 {
                     Subject = "ABP Developer Guide",
-                    StartTime = _clock.Normalize(DateTime.Parse("2025-03-01 09:00:00")),
-                    EndTime = _clock.Normalize(DateTime.Parse("2025-03-01 10:00:00")),
-                    ActualStartTime = _clock.Normalize(DateTime.Parse("2025-03-01 09:05:00")),
-                    ReminderTime = _clock.Normalize(DateTime.Parse("2025-03-01 08:30:00")),
-                    FollowUpTime = _clock.Normalize(DateTime.Parse("2025-03-01 10:30:00")),
+                    StartTime = _clock.Normalize(DateTime.Parse("2025-03-01 09:30:00")),
+                    EndTime = _clock.Normalize(DateTime.Parse("2025-03-01 10:30:00")),
+                    ActualStartTime = _clock.Normalize(DateTime.Parse("2025-03-01 11:30:00")),
+                    ReminderTime = _clock.Normalize(DateTime.Parse("2025-03-01 12:30:00")),
+                    FollowUpTime = _clock.Normalize(DateTime.Parse("2025-03-01 13:30:00")),
                     Description = "We will discuss the ABP developer guide."
                 },
                 autoSave: true
@@ -45,12 +45,12 @@ public class MeetingDataSeederContributor : IDataSeedContributor, ITransientDepe
                 new Meeting
                 {
                     Subject = "ABP Training",
-                    StartTime = _clock.Normalize(DateTime.Parse("2025-03-01 15:00:00")),
-                    EndTime = _clock.Normalize(DateTime.Parse("2025-03-01 16:00:00")),
-                    ActualStartTime = _clock.Normalize(DateTime.Parse("2025-03-01 15:05:00")),
-                    CanceledTime = _clock.Normalize(DateTime.Parse("2025-03-01 14:30:00")),
-                    ReminderTime = _clock.Normalize(DateTime.Parse("2025-03-01 08:30:00")),
-                    FollowUpTime = _clock.Normalize(DateTime.Parse("2025-03-01 10:30:00")),
+                    StartTime = _clock.Normalize(DateTime.Parse("2025-03-01 09:30:00")),
+                    EndTime = _clock.Normalize(DateTime.Parse("2025-03-01 10:30:00")),
+                    ActualStartTime = _clock.Normalize(DateTime.Parse("2025-03-01 11:30:00")),
+                    CanceledTime = _clock.Normalize(DateTime.Parse("2025-03-01 12:00:00")),
+                    ReminderTime = _clock.Normalize(DateTime.Parse("2025-03-01 12:30:00")),
+                    FollowUpTime = _clock.Normalize(DateTime.Parse("2025-03-01 13:30:00")),
                     Description = "ABP training for the new developers."
                 },
                 autoSave: true
