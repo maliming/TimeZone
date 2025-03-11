@@ -50,6 +50,7 @@ namespace TimeZoneApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ApplicationName = table.Column<string>(type: "nvarchar(96)", maxLength: 96, nullable: true),
                     JobName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     JobArgs = table.Column<string>(type: "nvarchar(max)", maxLength: 1048576, nullable: false),
                     TryCount = table.Column<short>(type: "smallint", nullable: false, defaultValue: (short)0),
