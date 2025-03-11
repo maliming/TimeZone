@@ -50,8 +50,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\_Host.cshtml" />
-    <_ContentIncludedByDefault Remove="Components\Toolbar\LoginLink\Default.cshtml" />
-  </ItemGroup>
 </Project>
