@@ -53,35 +53,35 @@
                                 Field="@nameof(MeetingDto.StartTime)"
                                 Caption="@(L["StartTime"] + "/" + L["EndTime"])">
                     <DisplayTemplate>
-                        @Clock.ConvertTo(context.StartTime).ToString("yyyy-MM-dd HH:mm:ss") ➡️ @Clock.ConvertTo(context.EndTime).ToString("yyyy-MM-dd HH:mm:ss")
+                        @Clock.ConvertToUserTime(context.StartTime).ToString("yyyy-MM-dd HH:mm:ss") ➡️ @Clock.ConvertToUserTime(context.EndTime).ToString("yyyy-MM-dd HH:mm:ss")
                     </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="MeetingDto"
                                 Field="@nameof(MeetingDto.ActualStartTime)"
                                 Caption="@L["ActualStartTime"]">
                     <DisplayTemplate>
-                        @Clock.ConvertTo(context.ActualStartTime).ToString("yyyy-MM-dd HH:mm:ss")
+                        @Clock.ConvertToUserTime(context.ActualStartTime).ToString("yyyy-MM-dd HH:mm:ss")
                     </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="MeetingDto"
                                 Field="@nameof(MeetingDto.CanceledTime)"
                                 Caption="@L["CanceledTime"]">
                     <DisplayTemplate>
-                        @(context.CanceledTime.HasValue ? Clock.ConvertTo(context.CanceledTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
+                        @(context.CanceledTime.HasValue ? Clock.ConvertToUserTime(context.CanceledTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
                     </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="MeetingDto"
                                 Field="@nameof(MeetingDto.ReminderTime)"
                                 Caption="@L["ReminderTime"]">
                     <DisplayTemplate>
-                        @(Clock.ConvertTo(context.ReminderTime).ToString("yyyy-MM-dd HH:mm:ss") )
+                        @(Clock.ConvertToUserTime(context.ReminderTime).ToString("yyyy-MM-dd HH:mm:ss") )
                           </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="MeetingDto"
                                 Field="@nameof(MeetingDto.FollowUpTime)"
                                 Caption="@L["FollowUpTime"]">
                     <DisplayTemplate>
-                        @(context.FollowUpTime.HasValue ? Clock.ConvertTo(context.FollowUpTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
+                        @(context.FollowUpTime.HasValue ? Clock.ConvertToUserTime(context.FollowUpTime.Value).ToString("yyyy-MM-dd HH:mm:ss") : "N/A")
                     </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="MeetingDto"
@@ -246,15 +246,15 @@
     {
         if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
         {
-            NewEntity.StartTime = Clock.ConvertFrom(SelectedDates[0]!.Value);
-            NewEntity.EndTime = Clock.ConvertFrom(SelectedDates[1]!.Value);
+            NewEntity.StartTime = Clock.ConvertToUtc(SelectedDates[0]!.Value);
+            NewEntity.EndTime = Clock.ConvertToUtc(SelectedDates[1]!.Value);
         }
 
-        NewEntity.ActualStartTime = Clock.ConvertFrom(NewEntity.ActualStartTime);
-        NewEntity.CanceledTime = NewEntity.CanceledTime.HasValue ? Clock.ConvertFrom(NewEntity.CanceledTime.Value) : null;
+        NewEntity.ActualStartTime = Clock.ConvertToUtc(NewEntity.ActualStartTime);
+        NewEntity.CanceledTime = NewEntity.CanceledTime.HasValue ? Clock.ConvertToUtc(NewEntity.CanceledTime.Value) : null;
 
-        NewEntity.ReminderTime = Clock.ConvertFrom(NewEntity.ReminderTime.DateTime);
-        NewEntity.FollowUpTime = NewEntity.FollowUpTime.HasValue ? Clock.ConvertFrom(NewEntity.FollowUpTime.Value.DateTime) : null;
+        NewEntity.ReminderTime = Clock.ConvertToUtc(NewEntity.ReminderTime.DateTime);
+        NewEntity.FollowUpTime = NewEntity.FollowUpTime.HasValue ? Clock.ConvertToUtc(NewEntity.FollowUpTime.Value.DateTime) : null;
 
         return Task.CompletedTask;
     }
@@ -263,23 +263,23 @@
     {
         await base.OpenEditModalAsync(entity);
 
-        SelectedDates = new List<DateTime?> { Clock.ConvertTo(EditingEntity.StartTime), Clock.ConvertTo(EditingEntity.EndTime) };
-        EditingEntity.ActualStartTime = Clock.ConvertTo(EditingEntity.ActualStartTime);
-        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertTo(EditingEntity.CanceledTime.Value) : null;
-        EditingEntity.ReminderTime = Clock.ConvertTo(EditingEntity.ReminderTime);
-        EditingEntity.FollowUpTime = EditingEntity.FollowUpTime.HasValue ? Clock.ConvertTo(EditingEntity.FollowUpTime.Value) : null;
+        SelectedDates = new List<DateTime?> { Clock.ConvertToUserTime(EditingEntity.StartTime), Clock.ConvertToUserTime(EditingEntity.EndTime) };
+        EditingEntity.ActualStartTime = Clock.ConvertToUserTime(EditingEntity.ActualStartTime);
+        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertToUserTime(EditingEntity.CanceledTime.Value) : null;
+        EditingEntity.ReminderTime = Clock.ConvertToUserTime(EditingEntity.ReminderTime);
+        EditingEntity.FollowUpTime = EditingEntity.FollowUpTime.HasValue ? Clock.ConvertToUserTime(EditingEntity.FollowUpTime.Value) : null;
     }
 
     protected override Task OnUpdatingEntityAsync()
     {
         if (SelectedDates.Count == 2 && SelectedDates[0].HasValue && SelectedDates[1].HasValue)
         {
-            EditingEntity.StartTime = Clock.ConvertFrom(SelectedDates[0]!.Value);
-            EditingEntity.EndTime = Clock.ConvertFrom(SelectedDates[1]!.Value);
+            EditingEntity.StartTime = Clock.ConvertToUtc(SelectedDates[0]!.Value);
+            EditingEntity.EndTime = Clock.ConvertToUtc(SelectedDates[1]!.Value);
         }
 
-        EditingEntity.ActualStartTime = Clock.ConvertFrom(EditingEntity.ActualStartTime);
-        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertFrom(EditingEntity.CanceledTime.Value) : null;
+        EditingEntity.ActualStartTime = Clock.ConvertToUtc(EditingEntity.ActualStartTime);
+        EditingEntity.CanceledTime = EditingEntity.CanceledTime.HasValue ? Clock.ConvertToUtc(EditingEntity.CanceledTime.Value) : null;
 
         return Task.CompletedTask;
     }
