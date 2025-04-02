@@ -24,7 +24,7 @@ public class MeetingDataSeederContributor : IDataSeedContributor, ITransientDepe
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        await _settingManager.SetGlobalAsync(TimingSettingNames.TimeZone, "Europe/Istanbul");
+        //await _settingManager.SetGlobalAsync(TimingSettingNames.TimeZone, "Europe/Istanbul");
         if (await _bookRepository.GetCountAsync() <= 0)
         {
             await _bookRepository.InsertAsync(

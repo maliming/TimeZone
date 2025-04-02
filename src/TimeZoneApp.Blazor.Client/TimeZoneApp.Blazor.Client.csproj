@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <Import Project="..\..\common.props" />
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap5" Version="1.7.5" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.7.5" />
+    <PackageReference Include="Blazorise.Components" Version="1.7.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac.WebAssembly/Volo.Abp.Autofac.WebAssembly.csproj" />
+    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Blazor.WebAssembly/Volo.Abp.SettingManagement.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="../../../abp/modules/feature-management/src/Volo.Abp.FeatureManagement.Blazor.WebAssembly/Volo.Abp.FeatureManagement.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="..\TimeZoneApp.Blazor.Shared\TimeZoneApp.Blazor.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme/Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Blazor.WebAssembly/Volo.Abp.Identity.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Blazor.WebAssembly/Volo.Abp.TenantManagement.Blazor.WebAssembly.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TimeZoneApp.HttpApi.Client\TimeZoneApp.HttpApi.Client.csproj" />
+  </ItemGroup>
+</Project>

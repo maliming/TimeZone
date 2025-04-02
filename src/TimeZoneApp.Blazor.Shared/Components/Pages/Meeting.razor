@@ -5,9 +5,10 @@
 @using TimeZoneApp.Localization
 @using TimeZoneApp.Permissions
 @using Volo.Abp.AspNetCore.Components.Web
+@using Volo.Abp.Timing
 @inject IStringLocalizer<TimeZoneAppResource> L
 @inject AbpBlazorMessageLocalizerHelper<TimeZoneAppResource> LH
-@inherits AbpCrudPageBase<IMeetingAppService, MeetingDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateMeetingDto>
+@inherits Volo.Abp.BlazoriseUI.AbpCrudPageBase<IMeetingAppService, MeetingDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateMeetingDto>
 
 <Card>
     <CardHeader>

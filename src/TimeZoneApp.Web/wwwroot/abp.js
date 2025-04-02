@@ -10,7 +10,7 @@ var abp = abp || {};
     }
 
     abp.clock.timeZone = function () {
-        return abp.setting.get('Abp.Timing.TimeZone');
+        return abp.setting.get('Abp.Timing.TimeZone') || abp.clock.browserTimeZone();
     }
 
     // Normalize Date object or date string to standard string format that will be sent to server

@@ -27,7 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeZoneApp.HttpApi.Host", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeZoneApp.DbMigrator", "src\TimeZoneApp.DbMigrator\TimeZoneApp.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneApp.Blazor", "src\TimeZoneApp.Blazor\TimeZoneApp.Blazor.csproj", "{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneApp.BlazorServer", "src\TimeZoneApp.BlazorServer\TimeZoneApp.BlazorServer.csproj", "{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneApp.Blazor", "src\TimeZoneApp.Blazor\TimeZoneApp.Blazor.csproj", "{7C6E6D73-70B3-475C-B193-796D9CD14DA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneApp.Blazor.Client", "src\TimeZoneApp.Blazor.Client\TimeZoneApp.Blazor.Client.csproj", "{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZoneApp.Blazor.Shared", "src\TimeZoneApp.Blazor.Shared\TimeZoneApp.Blazor.Shared.csproj", "{622E55F1-0F66-4DC3-A8FC-85661544F865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +89,18 @@ Global
 		{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6E6D73-70B3-475C-B193-796D9CD14DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6E6D73-70B3-475C-B193-796D9CD14DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6E6D73-70B3-475C-B193-796D9CD14DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6E6D73-70B3-475C-B193-796D9CD14DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622E55F1-0F66-4DC3-A8FC-85661544F865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622E55F1-0F66-4DC3-A8FC-85661544F865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622E55F1-0F66-4DC3-A8FC-85661544F865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622E55F1-0F66-4DC3-A8FC-85661544F865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +118,9 @@ Global
 		{E6D5BF0E-DE92-4D82-A352-EF04B37CB11C} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{AD9A8182-5C62-4DFD-8BAA-9A09257C71BB} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{7C6E6D73-70B3-475C-B193-796D9CD14DA7} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{477BE4C9-CAA5-4FB1-A422-CAADBA3C63EA} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{622E55F1-0F66-4DC3-A8FC-85661544F865} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AAFA1C6-603E-13FA-45E5-7910AA9F661D}

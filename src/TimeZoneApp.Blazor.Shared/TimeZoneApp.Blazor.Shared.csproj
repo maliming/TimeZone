@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\TimeZoneApp.Application.Contracts\TimeZoneApp.Application.Contracts.csproj" />
+        <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Components.Web/Volo.Abp.AspNetCore.Components.Web.csproj" />
+        <ProjectReference Include="../../../abp/framework/src/Volo.Abp.BlazoriseUI/Volo.Abp.BlazoriseUI.csproj" />
+    </ItemGroup>
+
+</Project>

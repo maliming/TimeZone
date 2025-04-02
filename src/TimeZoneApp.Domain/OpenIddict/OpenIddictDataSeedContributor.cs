@@ -125,6 +125,29 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             );
         }
 
+        //BlazorWASM Client
+        var blazorWASMClientId = configurationSection["TimeZoneApp_BlazorWASM:ClientId"];
+        if (!blazorWASMClientId.IsNullOrWhiteSpace())
+        {
+            var blazorWASMClientRootUrl = configurationSection["TimeZoneApp_BlazorWASM:RootUrl"]!.EnsureEndsWith('/');
+
+            await CreateApplicationAsync(
+                name: blazorWASMClientId!,
+                type: OpenIddictConstants.ClientTypes.Public,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Blazor Application",
+                secret: null,
+                grantTypes: new List<string> {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode,
+                    OpenIddictConstants.GrantTypes.RefreshToken,
+                },
+                scopes: commonScopes,
+                redirectUri: $"{blazorWASMClientRootUrl}authentication/login-callback",
+                clientUri: blazorWASMClientRootUrl,
+                postLogoutRedirectUri: $"{blazorWASMClientRootUrl}authentication/logout-callback"
+            );
+        }
+
         // Swagger Client
         var swaggerClientId = configurationSection["TimeZoneApp_Swagger:ClientId"];
         if (!swaggerClientId.IsNullOrWhiteSpace())
