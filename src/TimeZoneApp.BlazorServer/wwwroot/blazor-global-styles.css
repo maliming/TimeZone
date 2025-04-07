@@ -16,7 +16,3 @@
     right: 0.75rem;
     top: 0.5rem;
 }
-
-.flatpickr-calendar.static {
-    top: calc(28% + 2px) !important;
-}
