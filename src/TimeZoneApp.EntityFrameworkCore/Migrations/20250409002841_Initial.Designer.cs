@@ -13,7 +13,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace TimeZoneApp.Migrations
 {
     [DbContext(typeof(TimeZoneAppDbContext))]
-    [Migration("20250311043525_Initial")]
+    [Migration("20250409002841_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

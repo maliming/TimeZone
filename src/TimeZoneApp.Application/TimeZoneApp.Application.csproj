@@ -10,11 +10,11 @@
     <ProjectReference Include="..\TimeZoneApp.Application.Contracts\TimeZoneApp.Application.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.Application/Volo.Abp.Account.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Application/Volo.Abp.Identity.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/permission-management/src/Volo.Abp.PermissionManagement.Application/Volo.Abp.PermissionManagement.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Application/Volo.Abp.TenantManagement.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/feature-management/src/Volo.Abp.FeatureManagement.Application/Volo.Abp.FeatureManagement.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Application/Volo.Abp.SettingManagement.Application.csproj" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="9.3.0-preview*" />
   </ItemGroup>
 </Project>

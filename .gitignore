@@ -256,7 +256,8 @@ src/TimeZoneApp.Web/Logs/*
 src/TimeZoneApp.AuthServer/Logs/*
 src/TimeZoneApp.HttpApi.Host/Logs/*
 src/TimeZoneApp.DbMigrator/Logs/*
-src/TimeZoneApp.Blazor/Logs/logs.txt
+src/TimeZoneApp.Blazor/Logs/*
+src/TimeZoneApp.BlazorServer/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*

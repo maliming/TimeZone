@@ -13,17 +13,17 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac.WebAssembly/Volo.Abp.Autofac.WebAssembly.csproj" />
-    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Blazor.WebAssembly/Volo.Abp.SettingManagement.Blazor.WebAssembly.csproj" />
-    <ProjectReference Include="../../../abp/modules/feature-management/src/Volo.Abp.FeatureManagement.Blazor.WebAssembly/Volo.Abp.FeatureManagement.Blazor.WebAssembly.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Blazor.WebAssembly" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Blazor.WebAssembly" Version="9.3.0-preview*" />
     <ProjectReference Include="..\TimeZoneApp.Blazor.Shared\TimeZoneApp.Blazor.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme/Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme" Version="4.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Blazor.WebAssembly/Volo.Abp.Identity.Blazor.WebAssembly.csproj" />
-    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Blazor.WebAssembly/Volo.Abp.TenantManagement.Blazor.WebAssembly.csproj" />
+    <PackageReference Include="Volo.Abp.Identity.Blazor.WebAssembly" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" Version="9.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\TimeZoneApp.HttpApi.Client\TimeZoneApp.HttpApi.Client.csproj" />

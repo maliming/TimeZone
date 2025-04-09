@@ -39,16 +39,16 @@
     <PackageReference Include="DistributedLock.Redis" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="4.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.EntityFrameworkCore\TimeZoneApp.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
-    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.Web.OpenIddict/Volo.Abp.Account.Web.OpenIddict.csproj" />
-    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.Application/Volo.Abp.Account.Application.csproj" />
-    <ProjectReference Include="../../../abp/modules/account/src/Volo.Abp.Account.HttpApi/Volo.Abp.Account.HttpApi.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.DistributedLocking" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="9.3.0-preview*" />
   </ItemGroup>
 </Project>

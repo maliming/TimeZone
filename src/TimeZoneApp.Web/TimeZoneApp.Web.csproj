@@ -19,23 +19,23 @@
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="9.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../lepton/aspnet-core/abp/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite/Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="4.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.HttpApi.Client\TimeZoneApp.HttpApi.Client.csproj" />
     <ProjectReference Include="..\TimeZoneApp.HttpApi\TimeZoneApp.HttpApi.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Autofac/Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Caching.StackExchangeRedis/Volo.Abp.Caching.StackExchangeRedis.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.DistributedLocking/Volo.Abp.DistributedLocking.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Mvc.Client/Volo.Abp.AspNetCore.Mvc.Client.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Authentication.OpenIdConnect/Volo.Abp.AspNetCore.Authentication.OpenIdConnect.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Http.Client.Web/Volo.Abp.Http.Client.Web.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.AspNetCore.Serilog/Volo.Abp.AspNetCore.Serilog.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Http.Client.IdentityModel.Web/Volo.Abp.Http.Client.IdentityModel.Web.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.Swashbuckle/Volo.Abp.Swashbuckle.csproj" />
-    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.Web/Volo.Abp.Identity.Web.csproj" />
-    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.Web/Volo.Abp.TenantManagement.Web.csproj" />
-    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.Web/Volo.Abp.SettingManagement.Web.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.DistributedLocking" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.Client" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.OpenIdConnect" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Http.Client.Web" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="9.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Logs\**" />

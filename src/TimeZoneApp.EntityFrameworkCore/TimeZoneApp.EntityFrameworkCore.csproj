@@ -7,15 +7,15 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeZoneApp.Domain\TimeZoneApp.Domain.csproj" />
-    <ProjectReference Include="../../../abp/framework/src/Volo.Abp.EntityFrameworkCore.SqlServer/Volo.Abp.EntityFrameworkCore.SqlServer.csproj" />
-    <ProjectReference Include="../../../abp/modules/permission-management/src/Volo.Abp.PermissionManagement.EntityFrameworkCore/Volo.Abp.PermissionManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/setting-management/src/Volo.Abp.SettingManagement.EntityFrameworkCore/Volo.Abp.SettingManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/identity/src/Volo.Abp.Identity.EntityFrameworkCore/Volo.Abp.Identity.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/background-jobs/src/Volo.Abp.BackgroundJobs.EntityFrameworkCore/Volo.Abp.BackgroundJobs.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/audit-logging/src/Volo.Abp.AuditLogging.EntityFrameworkCore/Volo.Abp.AuditLogging.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/tenant-management/src/Volo.Abp.TenantManagement.EntityFrameworkCore/Volo.Abp.TenantManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/feature-management/src/Volo.Abp.FeatureManagement.EntityFrameworkCore/Volo.Abp.FeatureManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="../../../abp/modules/openiddict/src/Volo.Abp.OpenIddict.EntityFrameworkCore/Volo.Abp.OpenIddict.EntityFrameworkCore.csproj" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="9.3.0-preview*" />
+    <PackageReference Include="Volo.Abp.OpenIddict.EntityFrameworkCore" Version="9.3.0-preview*" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
