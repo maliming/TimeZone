@@ -1,6 +1,7 @@
 # TimeZoneApp
+## Developing a Multi-Timezone Application Using the ABP Framework
 
-Wait for this PR https://github.com/abpframework/abp/pull/22236
+https://github.com/abpframework/abp/blob/dev/docs/en/Community-Articles/2025-03-11-Developing-A-Multi-Timezone-Application-Using-The-ABP-Framework/post.md
 
 
 ## About this solution
